@@ -1,11 +1,13 @@
 const express = require('express'),
   bodyParser = require('body-parser'),
   recipe = require('./recipes'),
+  cors = require('cors'),
   app = express()
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 
 app.use(bodyParser.json())
+app.use(cors())
 
 app.get('/recipes', (req, res) => {
   res.json(recipe.list())
